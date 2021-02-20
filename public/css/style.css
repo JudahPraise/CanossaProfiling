@@ -1,0 +1,241 @@
+:root{
+    font-size: 16px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.nav-header{
+    box-shadow:  5px 5px 5px #bfbfbf, -5px -5px 5px #ffffff;
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* .carousel{
+    width: 100%;
+    margin: 0!important;
+} */
+
+/* .row-carousel{
+    margin-top: 0!important;
+} */
+
+
+.row-about{
+    width: 100%;
+    padding: 2.5em;
+    background-color: #cecece;
+    font-size: 2.5rem;
+}
+
+.col-about-article{
+    font-size: 1rem;
+}
+
+.col-about-img{
+    height: 50vh;
+    overflow: hidden;
+}
+
+.card{
+    max-width: 90rem;
+    margin: 1rem;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow:  7px 7px 14px #b3b3b3, 
+             -7px -7px 14px #ffffff;
+    overflow: hidden;
+}
+
+.nav-link:hover{
+    color: #1265B8!important;
+}
+
+.nav-link:focus{
+    color: #1265B8!important;
+}
+
+.content{
+    width: 90%;
+    margin-left: 0!important;
+    background-color: #cecece;
+}
+
+.col-img {
+    height: 40em;
+    width: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+    position: absolute;
+}
+
+
+
+.row-qweqwe{
+    height: 40vh;
+    width: 50%;
+}
+
+.row-college{
+    width: 100%;
+    padding: 1em;
+}
+
+.col-college{
+    margin: 1em;
+    height: 50vh;
+    background-color: #333;
+    border: 2px solid black;
+}
+
+
+.card:hover{
+    animation: bounce;
+}
+
+.contact-container{
+    height: 70vh;
+    border: 2px solid black;
+}
+
+.links{
+    width: 100%;
+    display: flex;
+}
+
+.contact-links{
+    display: inline-block;
+}
+
+.contact-link{
+    font-size: 1.8rem;
+    list-style: none;
+    padding: .5em;
+    margin: .5em;
+    display: block;
+    text-align: left;
+    border-radius: 1.5em;
+}
+
+i{
+    margin-right: 1em;
+}
+
+.contact-link:hover{
+    background-color: rgba(87, 87, 87, 0.151);
+}
+
+/* .row-map{
+    width: 100%;
+    border: 2px solid black;
+} */
+
+
+iframe{
+    height: 25rem;
+    width: 29rem;
+}
+
+
+.footer-background{
+    margin-bottom: 0!important;
+    padding: 0;
+    height: 50vh;
+    background-image: url('../img/canosa.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    filter: opacity(80%);
+}
+
+.footer-container{
+    background-color: rgba(68, 68, 68, 0.837);
+    z-index: 1;
+}
+
+.social-icon{
+    color: white;
+    font-size: 2rem;
+    margin: .5em;
+}
+
+.social-icon:hover{
+    color: #1265B8;
+}
+
+.nav-items{
+    position: absolute;
+    top: 45%;
+  }
+
+.wrapper{
+    position: absolute;
+    top: 8%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: .5 ease;
+    background: rgba(121, 121, 121, 0.555);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1em;
+}
+
+
+  .wrapper:hover .overlay{
+      opacity: 1;
+  }
+
+  .profile-icon{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .profile-icon:hover{
+    color: white;
+  }
+
+  .shadow-cards{
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow:  13px 13px 22px #a3a3a3, 
+             -13px -13px 22px #ffffff;
+  }
+
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .alert-promt{
+    width: 20%;
+    position: fixed!important;
+    right: 3rem;
+    bottom: 3rem;
+    z-index: 12;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-size: 1rem;
+    border-radius: 1rem!important;
+}
+
+.fa-check-circle{
+    color: green;
+}

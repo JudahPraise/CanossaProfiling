@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.background{
+    min-height: 100vh!important;
+    min-width: 100%!important;
+    background-image: url(/img/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    animation: slide 40s linear infinite 0s;
+    animation-timing-function: step-end ;
+    overflow: hidden;   
+    position: fixed;
+}
+
+@keyframes slide{
+    0%{
+        background-image: url(/img/2.jpg);
+    }
+
+    25%{
+        background-image: url(/img/3.jpg);
+    }
+
+    50%{
+        background-image: url(/img/4.jpg);
+    }
+
+    75%{
+        background-image: url(/img/5.jpg);
+    }
+    100%{
+        background-image: url(/img/1.jpg);
+    }
+
+}
+
+.glass{
+
+    background-color: white;
+    min-height: 100vh!important;
+    max-width: 40%!important;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+    );
+    backdrop-filter: blur(1rem);
+    position: fixed;
+
+}
+
+.logo{
+    height: 8rem;
+    width: 8rem;
+}
+
+.text-input{
+    padding: 1.5rem;
+    border-radius: 2rem;
+}
+
+.announcement{
+    min-height: 20vh!important;
+    min-width: 50%!important;
+    position: fixed;
+    top: 70%;
+    right: 48%;
+    color: white;
+}
+
+.title{
+    margin-left: 1rem;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 700px){
+    .glass{
+        position: fixed;
+        max-width: 100%!important;
+    }
+
+    .announcement{
+        display: none;
+    }
+}

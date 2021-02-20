@@ -1,0 +1,67 @@
+.glass-background{
+    max-width: 100%!important;
+    padding: 5rem;
+    background-image: url('../img/canosa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.glass{
+
+    background-color: white;
+    max-height: 90%!important;
+    max-width: 98%!important;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+    );
+    backdrop-filter: blur(.7rem);
+    border-radius: 1.5rem;
+
+}
+
+.message{
+    border-radius: 2rem; 
+    background-color: #0059B3; 
+    color: white;
+    width: 8rem;
+    transition: 0.5s;
+    transition-property: background-color;
+}
+
+.message:hover{
+    background-color: aliceblue;
+    color: #0059B3;
+}
+
+/* .elem-bkg{
+    background-image: url('../img/paterns/Linth.png');
+    background-size: contain;
+}
+
+.sec-bkg{
+    background-image: url('../img/paterns/Rangitikei.png');
+    background-size: contain;
+}
+
+.col-bkg{
+    background-image: url('../img/paterns/Inn.png');
+    background-size: contain;
+}
+
+.ed-glass{
+
+    background-color: white;
+    max-height: 97%!important;
+    max-width: 100%!important;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+    );
+    backdrop-filter: blur(2rem);
+
+    color: #0059B3;
+
+} */

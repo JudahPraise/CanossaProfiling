@@ -1,0 +1,143 @@
+.back{
+    height: 5.5rem;
+    width: 3rem;
+    /* border: 2px solid black; */
+    position: fixed;
+    left: 15.6rem;
+    top: 50%;
+    font-size: 2rem;
+    background-color: rgba(112, 112, 112, 0.465);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: white;
+    z-index: 12;
+    transition: color 0.5s;
+    cursor: pointer;
+}
+
+.back:hover{
+    color: #0059B3;
+    padding: 2rem;
+}
+
+.anchor{
+    text-decoration: none;
+    color: white;
+}
+
+.toggler{
+
+    height: 5.5rem;
+    width: 3rem;
+    /* border: 2px solid black; */
+    position: fixed;
+    right: 0%;
+    top: 50%;
+    font-size: 2rem;
+    background-color: rgba(112, 112, 112, 0.465);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    color: white;
+    z-index: 12;
+    transition: right 0.5s, color 0.5s;
+    cursor: pointer;
+}
+
+.toggler:hover{
+    color: #0059B3;
+    padding: 2rem;
+}
+
+.icons{
+    height: 5.5rem;
+    width: 18rem;
+    position: fixed;
+    right: -288px;
+    top: 50%;
+    background-color: rgba(112, 112, 112, 0.465);
+    color: white;
+    font-size: 2rem;
+    z-index: 12;
+    transition: 0.5s;
+    transition-property: right;
+    cursor: pointer;
+}
+
+#check:checked ~ .icons{
+    right: 0;
+}
+
+#check:checked ~ .toggler{
+    right: 288px;
+}
+
+.icon{
+    text-decoration: none; 
+    color: inherit;
+    transition: color 0.5s, font-size 0.5s;
+
+}
+
+.icon:hover{
+    text-decoration: none;
+    font-size: 2.2rem; 
+    color: rgb(20, 107, 221);
+}
+
+.profile:hover{
+    border: 3px solid rgb(20, 107, 221);
+}
+.badge-ann{
+    position: absolute;
+    right: 8rem;
+    top: 7px;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 20px!important;
+}
+.badge-in{
+    position: absolute;
+    right: 25px;
+    top: 7px;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 20px!important;
+}
+
+.alert-promt{
+    width: 20%;
+    position: fixed!important;
+    right: 3rem;
+    bottom: 3rem;
+    z-index: 12;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-size: 1rem;
+    border-radius: 1rem!important;
+}
+
+.fa-check-circle{
+    color: green;
+}
+
+
+
+
+@media only screen and (max-width: 921px) {
+    .back{
+        height: 5.5rem;
+        width: 3rem;
+        /* border: 2px solid black; */
+        position: fixed;
+        left: 0%;
+        top: 50%;
+        font-size: 2rem;
+        background-color: rgba(112, 112, 112, 0.465);
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        color: white;
+        z-index: 12;
+        transition: color 0.5s;
+        cursor: pointer;
+    }
+}

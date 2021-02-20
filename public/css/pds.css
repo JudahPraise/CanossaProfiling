@@ -1,0 +1,13 @@
+#paper{
+    width: 8.5in!important;
+    height: 11in!important;
+    background-color: rgb(233, 233, 233);
+
+}
+
+@media print and (width: 8.5in) and (height: 11in) {
+    @page {
+        margin: 1in;
+    }
+}
+

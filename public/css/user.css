@@ -1,0 +1,227 @@
+.background{
+    min-height: 100vh!important;
+    min-width: 100%!important;
+    background-color: white;
+    position: relative;
+
+    
+}
+
+.circle{
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.circle1{
+    background-color: #0059B3;
+    right: 10%;
+    top: 10%;
+}
+
+.circle2{
+    height: 10rem;
+    width: 10rem;
+    background-color: #C2CBDA;
+    left: 10%;
+    top: 10%;
+}
+
+.circle3{
+    background-color: #1693BA;
+    bottom: 10%;
+    left: 10%;
+}
+
+.circle4{
+    height: 10rem;
+    width: 10rem;
+    background-color: #1693BA;
+    bottom: 5%;
+    right: 5%;
+}
+.logo{
+    height: 20%;
+    width: 20%;
+}
+
+.glass{
+    background-color: rgb(184, 56, 56);
+    min-height: 100vh!important;
+    min-width: 100%!important;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+    );
+    backdrop-filter: blur(2rem);
+    z-index: 2;
+
+}
+
+.mdl{
+    position: relative!important;
+}
+
+.clickable1{
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+}
+
+.clickable1:hover{
+    position: fixed;
+    height: 15.5rem;
+    width: 15.5rem;
+}
+
+.clickable1:active{
+    position: fixed;
+    height: 15rem;
+    width: 15rem;
+}
+
+.clickable2{
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+}
+
+.clickable2:hover{
+    position: fixed;
+    height: 15.5rem;
+    width: 15.5rem;
+}
+
+.clickable2:active{
+    position: fixed;
+    height: 15rem;
+    width: 15rem;
+}
+
+.clickable3{
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+}
+
+.clickable3:hover{
+    position: fixed;
+    height: 15.5rem;
+    width: 15.5rem;
+}
+
+.clickable3:active{
+    position: fixed;
+    height: 15rem;
+    width: 15rem;
+}
+
+.toast-container{
+    /* border: 2px solid black;  */
+    width: 25rem;
+    padding: 3rem;
+    position: absolute; 
+    z-index: 12; 
+    right: 5rem;
+}
+
+.toggler{
+
+    height: 5.5rem;
+    width: 3rem;
+    /* border: 2px solid black; */
+    position: fixed;
+    right: 0%;
+    top: 50%;
+    font-size: 2rem;
+    background-color: rgba(112, 112, 112, 0.465);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    color: white;
+    z-index: 12;
+    transition: right 0.5s, color 0.5s;
+    cursor: pointer;
+}
+
+.toggler:hover{
+    color: #0059B3;
+    padding: 2rem;
+}
+
+.icons{
+    height: 5.5rem;
+    width: 18rem;
+    position: fixed;
+    right: -288px;
+    top: 50%;
+    background-color: rgba(112, 112, 112, 0.465);
+    color: white;
+    font-size: 2rem;
+    z-index: 12;
+    transition: 0.5s;
+    transition-property: right;
+    cursor: pointer;
+}
+
+#check:checked ~ .icons{
+    right: 0;
+}
+
+#check:checked ~ .toggler{
+    right: 288px;
+}
+
+.icon{
+    text-decoration: none; 
+    color: inherit;
+    transition: color 0.5s, font-size 0.5s;
+
+}
+
+.icon:hover{
+    text-decoration: none;
+    font-size: 2.2rem; 
+    color: rgb(20, 107, 221);
+}
+
+.profile:hover{
+    border: 3px solid rgb(20, 107, 221);
+}
+.badge-ann{
+    position: absolute;
+    right: 8rem;
+    top: 7px;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 20px!important;
+}
+.badge-in{
+    position: absolute;
+    right: 25px;
+    top: 7px;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 20px!important;
+}
+
+.alert-promt{
+    width: 20%;
+    position: fixed!important;
+    right: 3rem;
+    bottom: 3rem;
+    z-index: 12;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-size: 1rem;
+    border-radius: 1rem!important;
+}
+
+.fa-check-circle{
+    color: green;
+}
+
+
+
+
