@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <h3 class="font-weight-bold">{{ $announcement->ann_title }}</h3>
-                <h5>{{ $announcement->ann_start->format('M d Y') }} - {{ $announcement->ann_start->format('M d Y') }}</h5>
+                <h5>{{  \Carbon\Carbon::parse($announcement->ann_start)->format('M d,Y') }} - {{ \Carbon\Carbon::parse($announcement->ann_end)->format('M d,Y') }}</h5>
                 <h5>{{ $announcement->ann_other }}</h5>
                 @if(!empty($announcement->link))
                 <h5>Link: <a href="{{ $announcement->link }}">{{ $announcement->link }}</a></h5>

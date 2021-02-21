@@ -19,16 +19,16 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('employees.index') }}" style="color: #1265B8">
-            <i class="fas fa-users"></i>
-            <span>Employees</span></a>
+        <i class="fas fa-users"></i>
+        <span>Employees</span></a>
     </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Interface
-    </div>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('filter.personal') }}"  style="color: #1265B8">
+            <i class="fas fa-search"></i>
+            <span>Filter Search</span>
+        </a>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">

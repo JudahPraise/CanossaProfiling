@@ -37,8 +37,7 @@
        <ul class="has-no-list-style has-link-inherit">
          <li class="m-2"><a href="{{ route('home') }}">HOME</a></li>
          <li class="m-2"><a href="#portfolio">PORTFOLIO</a></li>
-         <li class="m-2"><a href="#portfolio">DOCUMENTS</a></li>
-         <li class="m-2"><a href="#portfolio">ANNOUNCEMENTS</a></li>
+         <li class="m-2"><a href="#documents">DOCUMENTS</a></li>
          <li class="m-2">
             <a href="{{ route('user.logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">{{ __('LOGOUT') }}</a>
@@ -57,16 +56,16 @@
   </div>
 
     <div class="card__footer grid has-link-inherit">
-      <div class="column is-full">
+      {{-- <div class="column is-full">
         <ul class="is-inline-list">
           <li><a href="#" data-toggle="tooltip" title="Tooltip on top"><i class="fab fa-twitter"></i></a></li>
           <li><a href="#" data-toggle="tooltip" title="Tooltip on top"><i class="fab fa-facebook-f"></i></a></li>
           <li><a href="#" data-toggle="tooltip" title="Tooltip on top"><i class="fab fa-instagram"></i></a></li>
           <li><a href="#" data-toggle="tooltip" title="Tooltip on top"><i class="fab fa-linkedin"></i></a></li>
         </ul>
-      </div>
+      </div> --}}
       <div class="column is-full has-no-padding-top">
-        <small class="has-text-muted">&copy; 2020 OrbitCSS</small>
+        <small class="has-text-muted">&copy; 2021 Canossa San Pablo HRIS</small>
       </div>
     </div>
 </div>

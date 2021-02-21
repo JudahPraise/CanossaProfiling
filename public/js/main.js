@@ -2,6 +2,7 @@ const birthBtn = document.querySelector('.birthBtn');
 const marriageBtn = document.querySelector('.marriageBtn');
 const baptismalBtn = document.querySelector('.baptismalBtn');
 const nbiBtn = document.querySelector('.nbiBtn');
+const collegeBtn = document.querySelector('.collegeBtn');
 
 
 document.addEventListener('click', function(ev) {
@@ -27,6 +28,12 @@ document.addEventListener('click', function(ev) {
 
     document.querySelector('.fileLabel').innerHTML ="NBI Clearance";
     document.getElementById('fileType').value = "NBI Clearance"
+
+  }
+  else if(ele.classList.contains("collegeBtn")){
+
+    document.querySelector('.fileLabel').innerHTML ="College Diploma";
+    document.getElementById('fileType').value = "College Diploma"
 
   }
 });

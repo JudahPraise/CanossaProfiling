@@ -188,13 +188,13 @@
             </div>
 
             <input type="checkbox" id="check" hidden>
-
             <label class="toggler d-flex align-items-center justify-content-around" for="check">
+              
               <i class="fas fa-caret-left"></i>
+              
             </label>
             
             <div class="icons d-flex align-items-center justify-content-center">
-              @if(!empty(auth()->user()->employee))
               <a href="{{ route('profile.index') }}" class="icon mr-4">
                 <span class="d-flex flex-column align-content-lg-between">
                   <div class="image is-tiny-square is-rounded mt-3 profile" style="border: 2px solid white">
@@ -207,29 +207,12 @@
                           <lottie-player class="" src="{{ asset('animations/1.json') }}" background="transparent"  speed="1"  style="width: 93px; height: 93px; position: absolute; bottom: 0rem; right: 13.8rem; top: -13.6px;" loop autoplay "></lottie-player>
                         @endIf
                     @endIf
-                    
                   </div>
                   <p style="font-size: 15px">Profile</p>
                 </span>
               </a>
-              @else
-              <a href="{{ route('profile.create') }}" class="icon mr-4">
-                <span class="d-flex flex-column align-content-lg-between">
-                  <div class="image is-tiny-square is-rounded mt-3 profile" style="border: 2px solid white">
-                    <img class="img" src="{{ asset('/storage/images/'.Auth::user()->image) }}" alt="">
-                    {{-- <div class="row d-flex justify-content-center align-items-start" style="border: 2px solid black; position: absolute; top: 0;"> --}}
-                      @if($user->sex === 'Male')
-                      <lottie-player class="" src="{{ asset('animations/4.json') }}" background="transparent"  speed="1"  style="width: 93px; height: 93px; position: absolute; bottom: 0rem; right: 13.8rem; top: -13.6px;" loop autoplay "></lottie-player>
-                      @elseif($user->sex === 'Female')
-                      <lottie-player class="" src="{{ asset('animations/1.json') }}" background="transparent"  speed="1"  style="width: 93px; height: 93px; position: absolute; bottom: 0rem; right: 13.8rem; top: -13.6px;" loop autoplay "></lottie-player>
-                      @endIf
-                    {{-- </div> --}}
-                  </div>
-                  <p style="font-size: 15px">Profile</p>
-                </span>
-              </a>
-              @endIf
-            @if(Auth::check())
+
+              @if(Auth::check())
               <a href="{{ route('announcements') }}" class="icon mt-2">
                 <span class="d-flex flex-column align-items-center ">
                   <i class="fas fa-bullhorn mt-3 rotate-n-15"></i>
@@ -243,16 +226,17 @@
               </a>
             @endIf
 
-              <a href="{{ route('message.index') }}" class="icon ml-4 mt-2 mr-5">
+              <a href="{{ route('user-message.index') }}" class="icon ml-4 mt-2 mr-5">
                 <span class="d-flex flex-column align-items-center ">
                   <i class="fas fa-envelope mt-3"></i>
                   <p class="mt-2" style="font-size: 15px">Inbox</p>
-                  {{-- <span class="badge badge-danger text-center badge-in">
-                    <p>4</p>
-                  </span> --}}
+                  @if($messages_count)
+                  <span class="badge badge-danger text-center badge-in">
+                    <p>{{ $messages_count }}</p>
+                  </span>
+                  @endif
                 </span>
               </a>
-              
             </div>
 
           </div>
@@ -265,30 +249,35 @@
               </div>
               
               <div class="row d-flex align-items-center w-100 ml-1">
-                <div class="card-group">
-                    <div class="card m-2 shadow bg-white rounded">
-                      <img src="{{ asset('img/portfolio-cards/personal-information.png') }}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h6 class="card-title">Personal Information</h6>
-                        <a href="{{ route('personal.index') }}" class="btn btn-primary text-white">Edit</a>
-                      </div>
-                    </div>  
-              
-                    <div class="card m-2 shadow bg-white rounded">
-                      <img src="{{ asset('img/portfolio-cards/family-background.png') }}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h6 class="card-title">Family Background</h6>
-                        <a href="{{ route('family.index') }}" class="btn btn-primary text-white">Edit</a>
-                      </div>
+                
+                <div class="card-group mb-3">
+                  <div class="card m-2 shadow bg-white rounded">
+                    <img src="{{ asset('img/portfolio-cards/personal-information.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Personal Information</h6>
+                      @if(!empty(Auth::user()->personal))
+                        <a href="{{ route('personal.edit', Auth::user()->personal->id) }}" class="btn btn-primary text-white">Edit</a> 
+                      @else
+                        <a href="{{ route('fresh.start') }}" class="btn btn-primary text-white">Edit</a> 
+                      @endif
                     </div>
+                  </div>  
               
-                    <div class="card m-2 shadow bg-white rounded">
-                      <img src="{{ asset('img/portfolio-cards/educational-background.png') }}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h6 class="card-title">Educational Background</h6>
-                        <a href="{{ route('elementary.index') }}" class="btn btn-primary text-white">Edit</a>
-                      </div>
+                  <div class="card m-2 shadow bg-white rounded">
+                    <img src="{{ asset('img/portfolio-cards/family-background.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Family Background</h6>
+                      <a href="{{ route('family.index') }}" class="btn btn-primary text-white">Edit</a>
                     </div>
+                  </div>
+              
+                  <div class="card m-2 shadow bg-white rounded">
+                    <img src="{{ asset('img/portfolio-cards/educational-background.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h6 class="card-title">Educational Background</h6>
+                      <a href="{{ route('elementary.index') }}" class="btn btn-primary text-white">Edit</a>
+                    </div>
+                  </div>
                 </div>
             
                 <div class="card-group">            
@@ -321,7 +310,7 @@
           </div>
 
           <!--*Other Documents -->
-          <div class="hero">
+          <div class="hero" id="documents">
             <div class="hero__content grid has-centered">
               <div class="column is-12 ml-5">
                 <h2>Documents</h2>
@@ -400,7 +389,7 @@
                   <div class="card m-3 shadow bg-white rounded">
                     <div class="card-body">
                       <h5 class="card-title">Birth Certificate</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <p class="card-text">Upload your scanned birth certificate here.</p>
                       <button type="button" class="btn btn-primary birthBtn" data-toggle="modal" data-target="#modalInsert">
                         <i class="fas fa-paperclip mr-2"></i>Attach File
                       </button>
@@ -411,7 +400,7 @@
                   <div class="card m-3 shadow bg-white rounded">
                     <div class="card-body">
                       <h5 class="card-title">Marriage Certificate</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <p class="card-text">Upload your scanned marriage certificate here.</p>
                       <button type="button" class="btn btn-primary marriageBtn" data-toggle="modal" data-target="#modalInsert">
                         <i class="fas fa-paperclip mr-2"></i>Attach File
                       </button>
@@ -425,7 +414,7 @@
                   <div class="card m-3 shadow bg-white rounded">
                     <div class="card-body">
                             <h5 class="card-title">Baptismal Certificate</h5>
-                            <p class="card-text">You can print and download your resume here.</p>
+                            <p class="card-text">Upload your scanned baptismal certificate here.</p>
                             <button type="button" class="btn btn-primary baptismalBtn" data-toggle="modal" data-target="#modalInsert">
                               <i class="fas fa-paperclip mr-2"></i>Attach File
                             </button>
@@ -434,19 +423,19 @@
                   {{-- NBI Clearance --}}
                   <div class="card m-3 shadow bg-white rounded">
                     <div class="card-body">
-                            <h5 class="card-title">NBI Clearance</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <button type="button" class="btn btn-primary nbiBtn" data-toggle="modal" data-target="#modalInsert">
-                              <i class="fas fa-paperclip mr-2"></i>Attach File
-                            </button>
+                      <h5 class="card-title">NBI Clearance</h5>
+                      <p class="card-text">Upload your scanned NBI clearance here.</p>
+                      <button type="button" class="btn btn-primary nbiBtn" data-toggle="modal" data-target="#modalInsert">
+                        <i class="fas fa-paperclip mr-2"></i>Attach File
+                      </button>
                     </div>
                   </div>
                   {{-- Marriage Certificate --}}
                   <div class="card m-3 shadow bg-white rounded">
                     <div class="card-body">
                       <h5 class="card-title">College Diploma</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modalInsert">
+                      <p class="card-text">Upload your scanned college diploma here.</p>
+                      <button type="button" class="btn btn-primary collegeBtn" data-toggle="modal" data-target="#modalInsert">
                         <i class="fas fa-paperclip mr-2"></i>Attach File
                       </button>
                     </div>
@@ -497,8 +486,8 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.5/getting-started/introduction/">getting started guide</a>.</p>
+        <p>Canossa College San Pablo</p>
+        <small class="has-text-muted">&copy; 2021 Canossa San Pablo HRIS</small>
       </div>
     </footer>
     

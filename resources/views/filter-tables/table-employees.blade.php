@@ -22,7 +22,7 @@
               <td>{{ $employee->department }}</td>
               <td>{{ $employee->position }}</td>
               <td>
-                  <a href="{{ route('view.profile', $employee->id) }}" class="btn text-white" style="background-color: #1265B8">View Profile</a>
+                  <a href="{{ route('view.profile', $employee->user_id) }}" class="btn text-white" style="background-color: #1265B8">View Profile</a>
               </td>
             </tr>
           @empty

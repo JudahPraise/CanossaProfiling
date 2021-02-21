@@ -31,6 +31,12 @@ class CreatePersonalInformationTable extends Migration
             $table->string('zip_code');
             $table->string('tel_number');
             $table->string('cell_number');
+            $table->string('prc');
+            $table->string('gsis');
+            $table->string('sss');
+            $table->string('pag_ibig');
+            $table->string('driver_license');
+            $table->string('phil_health');
             $table->mediumText('email_address');
             $table->timestamps();
         });

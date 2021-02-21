@@ -10,7 +10,8 @@ class ViewProfileController extends Controller
 {
     public function viewProfile($id){
         
-        $user = User::where('id', $id)->with('employee','personal','experiences','elementary','secondary', 'college', 'graduate_studies', 'trainings', 'documents','voluntary_works','family', 'children')->first();
+        $user = User::where('id','=',$id)->with('employee','personal','experiences','elementary','secondary', 'college', 'graduate_studies', 'trainings', 'documents','voluntary_works','family', 'children')->first();
+        // dd($user);
         return view('admin.view_profile')->with('user', $user);
         
     }

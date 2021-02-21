@@ -7,6 +7,9 @@
         <div class="list-group" style="height: 25rem; overflow: auto; scroll-behavior: smooth;">
           @forelse($announcements as $announcement)
           <a href="{{ route('user-announcement.show', $announcement->id) }}" class="list-group-item list-group-item-action">
+            @if($announcement->read === 'notread')
+                <h5>Example heading <span class="badge badge-secondary">New</span></h5>
+                @endIf
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ $announcement->ann_title }}</h5>
                 <small>{{ $announcement->created_at->diffForHumans() }}</small>
@@ -34,7 +37,7 @@
       
                   <div class="col-lg-6 d-flex justify-content-end align-items-center">
                     
-                    <form action="{{ route('user-announcement.markAsRead') }}">
+                    <form action="{{ route('user-announcement.markAsRead', $announcement->id) }}">
                         <button class="btn btn-sm btn-primary" type="submit">Mark as read</button>
                     </form>
                     

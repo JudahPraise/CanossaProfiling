@@ -18,16 +18,22 @@ class UserAnnouncementController extends Controller
     //     return view('user-announcement.announcement', compact('announcements', $announcements));
     // }
 
-    public function markAsRead(){
+    public function markAsRead($id){
         
-        auth()->user()->unreadNotifications->markAsRead();
+        Announcement::where('id','=',$id)->update([
+            'read' => 'read',
+        ]);
+
         return redirect()->back();
 
     }
 
     public function show($id){
 
-        auth()->user()->unreadNotifications->markAsRead();
+        Announcement::where('id','=',$id)->update([
+            'read' => 'read',
+        ]);
+        
         $announcement = Announcement::where('id','=',$id)->first();
         return view('user-announcement.view-announcement', compact('announcement', $announcement));
         

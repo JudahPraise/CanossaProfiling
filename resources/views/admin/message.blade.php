@@ -15,20 +15,30 @@
     <div class="col-lg-9">
         <div class="d-flex flex-column">
             <h3>Message</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+            <p class="w-75">You're able to notify employee through personal message or send to all depends on what department that you need to notify or send a message. You can attach file or link on your messages.</p>
+            <div class="row mt-3">
+                <a href="{{ route('message.create') }}" class="btn btn-outline-primary rounded-pill m-2"><i class="far fa-paper-plane"></i>Send Message</a>
+                <a href="{{ route('message.inbox') }}" class="btn btn-outline-info rounded-pill m-2"><i class="fas fa-inbox"></i>Inbox</a>
+                <a href="{{ route('message.outbox') }}" class="btn btn-outline-success rounded-pill m-2"><i class="fas fa-box"></i>Sent Box</a>
+            </div>
         </div>
     </div>
 
 </div>
 
+@if(session()->has('success'))
+  <div class="alert alert-dismissible fade-in alert-promt p-4 data-auto-dismiss d-flex justify-content-center" role="alert" id="alert" style="width: 25rem;">
+    <span><i class="fas fa-check-circle mr-3" style="font-size: 1.5rem;"></i>{{ session('success') }}</span>
+  </div>
+@elseif(session()->has('delete'))
+<div class="alert alert-dismissible fade-in alert-promt p-4 data-auto-dismiss d-flex justify-content-center" role="alert" id="alert" style="width: 25rem;">
+  <span><i class="fas fa-trash mr-3" style="font-size: 1.5rem; color: rgb(170, 0, 0);"></i>{{ session('delete') }}</span>
+</div>
+@endif
+
 <div class="row w-100 px-2 d-flex align-items-center justify-content-start">
 
-    <div class="col-lg-4 d-flex flex-column">
-        <a href="{{ route('message.create') }}" class="btn btn-success m-3 btn-lg">Send Message</a>
-        <button class="btn btn-primary m-3 btn-lg">View Message</button>
-    </div>
-
-    <div class="col-lg-8 mb-5">
+    <div class="col-lg-12 mb-5">
         
         @yield('message')
 

@@ -14,27 +14,45 @@
 
       <div class="form-group col-md-6">
         <label for="inputEmail4">Send To</label>
-        <input type="text" class="form-control" name="recipient" id="inputEmail4">
+        <input type="text" class="form-control" name="send_to" id="inputEmail4">
       </div>
 
       <div class="form-group col-md-6">
         <label for="inputState">Send To All</label>
-        <select id="inputState" name="recipientAll" class="form-control">
-          <option selected>Choose...</option>
+        <select id="inputState" name="send_to_all" class="form-control">
+          <option selected disabled value="">Choose...</option>
           <option>Elementary</option>
           <option>Junior High School</option>
           <option>Senior High School</option>
           <option>College</option>
-          <option>Staff</option>
-          <option>Maintenance</option>
-          <option class="text-primary">Verification Notice</option>
+          <option>All</option>
         </select>
+      </div>
+    </div>
+
+    <div class="form-row d-flex flex-column col-mb-12 mb-3">
+      <label for="">Message Suggestions</label>
+      <div class="row">
+
+        <a class="btn btn-outline-primary rounded-pill m-2" 
+        onclick="document.getElementById('message').innerHTML = 'Kindly complete your data records on your portfolio!'">
+        Complete Your Data
+        </a>
+
+        <a class="btn btn-outline-primary rounded-pill m-2" onclick="document.getElementById('message').innerHTML = 'Kindly update your data records on your portfolio!'">
+          Update Your Data
+        </a>
+
+        <a class="btn btn-outline-primary rounded-pill m-2" onclick="document.getElementById('message').innerHTML = 'Kindly change your profile picture!'">
+          Change your profile picture
+        </a>
+
       </div>
     </div>
 
     <div class="form-row col-mb-12 mb-3">
         <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" name="message" id="message" rows="3"></textarea>
     </div>
 
     <div class="form-row">
@@ -52,10 +70,7 @@
         </div>
       </div>
 
-   
-
-
-    <button type="submit" class="btn btn-primary">Send</button>
+    <button type="submit" class="btn btn-primary"><i class="far fa-paper-plane mr-2"></i>Send</button>
   </form>
 
 @endsection

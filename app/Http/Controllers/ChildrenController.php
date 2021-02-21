@@ -47,4 +47,12 @@ class ChildrenController extends Controller
 
 
     }
+
+    public function delete($id){
+
+        $child = Children::where('id','=',$id)->first();
+        $child->delete($child);
+        return redirect()->route('family.index');
+
+    }
 }

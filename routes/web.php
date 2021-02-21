@@ -83,6 +83,7 @@ Route::prefix('family-background')->group(function(){
 Route::post('/child', 'ChildrenController@store')->name('child.store');
 Route::get('/child/edit/{id}', 'ChildrenController@edit')->name('child.edit');
 Route::put('/child/update/{id}', 'ChildrenController@update')->name('child.update');
+Route::delete('/child/delete/{id}', 'ChildrenController@delete')->name('child.delete');
 
 // * Educational Background
 Route::prefix('educational-background/elementary')->group(function(){
@@ -180,7 +181,7 @@ Route::prefix('announcement')->group(function(){
 
 Route::prefix('user-announcement')->group(function(){
     // Route::get('/', 'UserAnnouncementController@index')->name('announcements');
-    Route::get('/mark-as-read', 'UserAnnouncementController@markAsRead')->name('user-announcement.markAsRead');
+    Route::get('/mark-as-read/{id}', 'UserAnnouncementController@markAsRead')->name('user-announcement.markAsRead');
     Route::get('/view-announcement/{id}', 'UserAnnouncementController@show')->name('user-announcement.show');
 });
 
@@ -202,7 +203,30 @@ Route::get('view-profile/{id}', 'ViewProfileController@viewProfile')->name('view
 Route::prefix('inbox')->group(function(){
     Route::get('/', 'MessageController@index')->name('message.index');
     Route::get('/create-message', 'MessageController@createMessage')->name('message.create');
-    Route::post('/send-message', 'MessageController@store')->name('message.store');
+    Route::post('/send-message', 'MessageController@sendMessage')->name('message.store');
+    Route::get('/outbox', 'MessageController@sent')->name('message.outbox');
+    Route::get('/inbox', 'MessageController@inbox')->name('message.inbox');
+    Route::get('/send-message/{id}', 'MessageController@messageUser')->name('message.inform');
+    Route::delete('/delete-message/{id}', 'MessageController@delete')->name('message.delete');
+    Route::get('/download-attachment/{id}', 'MessageController@download')->name('message.download');
+    Route::get('/reply/{sender}', 'MessageController@reply')->name('message.reply');
+});
+
+Route::prefix('user-inbox')->group(function(){
+    Route::get('/', 'UserMessage@index')->name('user-message.index');
+    Route::get('/create-message', 'UserMessage@createMessage')->name('user-message.create');
+    Route::post('/send-message', 'UserMessage@sendMessage')->name('user-message.store');
+    Route::get('/outbox', 'UserMessage@sent')->name('user-message.outbox');
+    Route::delete('/delete/{id}', 'UserMessage@delete')->name('user-message.delete');
+    Route::get('/download/{id}', 'UserMessage@download')->name('user-message.download');
+    Route::get('/mark-as-read/{id}', 'UserMessage@markAsRead')->name('user-message.markAsRead');
+    Route::get('/reply/{sender}', 'UserMessage@reply')->name('user-message.reply');
+    
+});
+
+Route::prefix('filter-by')->group(function(){
+    Route::get('/personal-information', 'FilterController@filterPersonal')->name('filter.personal');
+    Route::get('/graduate-studies', 'FilterController@filterStudies')->name('filter.studies');
 });
 
 
@@ -226,3 +250,7 @@ Route::get('register-employee', function(){
 Route::get('forgot-password', function(){
     return view('forgot-form');
 })->name('forgot');
+
+Route::get('personal-information', function(){
+    return view('user-profile.fresh-start');
+})->name('fresh.start');

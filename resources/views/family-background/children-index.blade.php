@@ -15,9 +15,13 @@
             <tr>
               <td>{{ $child->name }}</td>
               <td>{{ $child->date_of_birth }}</td>
-              <td>
+              <td class="d-flex">
                 <a href="{{ route('child.edit', $child->id) }}" class="btn btn-primary text-white mr-2">Edit</a>
-                <a href="" class="btn btn-danger text-white">Remove</a>
+                <form action="{{ route('child.delete', $child->id) }}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn btn-danger text-white"">Remove</button>
+                </form>
               </td>
             </tr>
           @empty  

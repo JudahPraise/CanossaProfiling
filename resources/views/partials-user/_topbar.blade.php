@@ -52,14 +52,13 @@
          <ul class="has-no-list-style has-link-inherit">
               <li><a href="{{ route('home') }}">HOME</a></li>
               <li><a href="#portfolio">PORTFOLIO</a></li>
-              <li><a href="#portfolio">DOCUMENTS</a></li>
-              <li><a href="#portfolio">ANNOUNCEMENTS</a></li>
+              <li><a href="#documents">DOCUMENTS</a></li>
              <li>
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">{{ __('LOGOUT') }}</a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">{{ __('LOGOUT') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
              </li>
              <li>
               <a href="{{ route('user.update-password') }}">
@@ -70,14 +69,14 @@
      </div>   
      
      <div class="has-row-margin">
-         <ul class="d-flex flex-row is-inline-list">
+         {{-- <ul class="d-flex flex-row is-inline-list">
              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-         </ul>
+         </ul> --}}
          <div class="column is-full">
-             <small class="has-text-muted">&copy; 2020 OrbitCSS</small>
+          <small class="has-text-muted">&copy; 2021 Canossa San Pablo HRIS</small>
          </div>
      </div>
   </div>

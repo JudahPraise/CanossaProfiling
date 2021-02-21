@@ -30,7 +30,7 @@
                 <td>{{ $user->employee->position }}</td>
                 <td>
                   <a href="{{ route('user.edit-password', $user->id) }}" class="btn btn-primary">Change Password</a>
-                  <a href="" class="btn btn-warning">Archive</a>
+                  <a href="{{  }}" class="btn btn-warning">Resigned</a>
                 </td>
               </tr>
 

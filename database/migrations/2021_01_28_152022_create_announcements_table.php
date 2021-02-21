@@ -23,6 +23,7 @@ class CreateAnnouncementsTable extends Migration
             $table->mediumText('ann_other')->nullable();
             $table->string('link')->nullable();
             $table->mediumText('attachment')->nullable();
+            $table->string('read')->default('notread');
             $table->timestamps();
 
         });

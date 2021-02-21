@@ -13,8 +13,11 @@
           <label for="birth">Date of Birth</label>
         <input type="date" id="birth" name="date_of_birth" value="{{ $child->date_of_birth }}"  class="form-control" placeholder="State">
       </div>
+    </div> 
+    <div class="row align-self-end mr-1">
+      <button type="submit" class="btn btn-primary mt-3 align-self-lg-end mr-2">Update</button>
+      <a href="{{ url()->previous() }}" class="btn btn-secondary mt-3 text-white">Cancel</a>
     </div>
-
-    <button type="submit" class="btn btn-primary mt-3 align-self-lg-end">Update</button>
+    
   </form>
 @endsection

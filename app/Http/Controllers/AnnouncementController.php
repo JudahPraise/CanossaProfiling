@@ -14,7 +14,7 @@ class AnnouncementController extends Controller
 {
     public function index(){
 
-        $announcements = Announcement::all();
+        $announcements = Announcement::orderBy('created_at', 'desc')->get();
         return view('admin-announcement.index', compact('announcements', $announcements));
 
     }
@@ -57,7 +57,7 @@ class AnnouncementController extends Controller
 
         Notification::send($employee, new AnnouncementNotification(Announcement::latest('id')->first()));
         
-        return redirect()->route('announcement.index');
+        return redirect()->route('announcement.index')->with('success', 'Announcement created successfully!');
 
     }
 
@@ -113,12 +113,11 @@ class AnnouncementController extends Controller
        }
        else
        {
-       
             $employee = Employee::where('department','=',$announcement->ann_affected)->get();
             Notification::send($employee, new AnnouncementNotification(Announcement::latest('id')->first()));
        }
         
-        return redirect()->route('announcement.index');
+        return redirect()->route('announcement.index')->with('success', 'Announcement updated successfully!');
 
     }
 }

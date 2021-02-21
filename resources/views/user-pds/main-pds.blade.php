@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/portfolio-back.css') }}">
     <title>OrbitCSS - Basic Portfolio Example</title>
+
+    @yield('css')
     <style>
 
       .hero:not(:last-of-type), .top {
@@ -153,33 +155,46 @@
             </label>
             
             <div class="icons d-flex align-items-center justify-content-center">
-
               <a href="{{ route('profile.index') }}" class="icon mr-4">
                 <span class="d-flex flex-column align-content-lg-between">
                   <div class="image is-tiny-square is-rounded mt-3 profile" style="border: 2px solid white">
-                    <img class="img" src="{{ asset('/storage/images/'.Auth::user()->image) }}" alt="">
+                    @if(!empty(Auth::user()->image))
+                        <img class="img" src="{{ asset('/storage/images/'.Auth::user()->image) }}" alt="">
+                    @else
+                        @if($user->sex === 'Male')
+                          <lottie-player class="" src="{{ asset('animations/4.json') }}" background="transparent"  speed="1"  style="width: 93px; height: 93px; position: absolute; bottom: 0rem; right: 13.8rem; top: -13.6px;" loop autoplay "></lottie-player>
+                        @elseif($user->sex === 'Female')
+                          <lottie-player class="" src="{{ asset('animations/1.json') }}" background="transparent"  speed="1"  style="width: 93px; height: 93px; position: absolute; bottom: 0rem; right: 13.8rem; top: -13.6px;" loop autoplay "></lottie-player>
+                        @endIf
+                    @endIf
                   </div>
                   <p style="font-size: 15px">Profile</p>
                 </span>
               </a>
 
+              @if(Auth::check())
               <a href="{{ route('announcements') }}" class="icon mt-2">
                 <span class="d-flex flex-column align-items-center ">
-                  <i class="fas fa-envelope mt-3"></i>
-                  <p class="mt-2" style="font-size: 15px">Announcements</p>
-                  <span class="badge badge-danger text-center badge-ann">
-                    <p>4</p>
-                  </span>
+                  <i class="fas fa-bullhorn mt-3 rotate-n-15"></i>
+                  <p class="mt-2" style="font-size: 15px">Announcements</p>           
+                  @if($announcement_count)
+                    <span class="badge badge-danger text-center badge-ann">
+                      <p>{{ $announcement_count }}</p>
+                    </span>
+                  @endIf
                 </span>
               </a>
+            @endIf
 
-              <a href="#" class="icon ml-4 mt-2 mr-5">
+              <a href="{{ route('message.index') }}" class="icon ml-4 mt-2 mr-5">
                 <span class="d-flex flex-column align-items-center ">
-                  <i class="fas fa-bullhorn mt-3"></i>
+                  <i class="fas fa-envelope mt-3"></i>
                   <p class="mt-2" style="font-size: 15px">Inbox</p>
+                  @if($messages_count)
                   <span class="badge badge-danger text-center badge-in">
-                    <p>4</p>
+                    <p>{{ $messages_count }}</p>
                   </span>
+                  @endif
                 </span>
               </a>
               

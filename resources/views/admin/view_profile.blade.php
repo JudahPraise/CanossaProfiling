@@ -36,7 +36,7 @@
           <h5 class="mt-5"><i class="fas fa-map-marker-alt"></i>No data</h5>
           <h5 class=""><i class="fas fa-envelope"></i>No data</h5>
         @endIf
-      <button class="btn mt-3 p-2 message" style=""><i class="fas fa-envelope"></i>Message</button>
+      <a href="{{ route('message.inform', $user->employee->id) }}" class="btn mt-3 p-2 message"><i class="fas fa-envelope"></i>Message</a>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
           <div class="card-body">
             <div class="container d-flex flex-column justify-content-center">
               @if(!empty($user->personal))
-              <h5>Date of birth: <span class="ml-5">{{ "  ".$user->personal->date_of_birth->format('M  d, Y') }}</span></h5>
+              <h5>Date of birth: <span class="ml-5">{{ "  ".\Carbon\Carbon::parse($user->personal->date_of_birth)->format('M d,Y') }}</span></h5>
               <h5>Sex: <span style="margin-left: 8rem">{{ "  ".$user->personal->sex }}</span></h5>
               <h5>Citizenship: <span style="margin-left: 3.7rem">{{ "  ".$user->personal->citizenship }}</span></h5>
               <h5>Civil Status: <span style="margin-left: 3.7rem">{{ "  ".$user->personal->civil_status }}</span></h5>
@@ -71,11 +71,16 @@
       <div class="col-lg-4 order-lg-2 mt-4">
         <div class="card border-left-success">
           <div class="card-body">
-            <h5>PRC: <span style="margin-left: 6.8rem">123456789</span></h5>
-            <h5>GSIS: <span style="margin-left: 6.5rem">123456789</span></h5>
-            <h5>SSS: <span style="margin-left: 7.3rem"> 123456789</span></h5>
-            <h5>PAG-IBIG: <span style="margin-left: 4rem">123456789</span></h5>
-            <h5>Drivers License: <span style="margin-left: 1rem">123456789</span></h5>
+            @if(!empty($user->personal))
+              <h5>PRC: <span style="margin-left: 6.8rem">{{ $user->personal->prc }}</span></h5>
+              <h5>GSIS: <span style="margin-left: 6.5rem">{{ $user->personal->gsis }}</span></h5>
+              <h5>SSS: <span style="margin-left: 7.3rem">{{ $user->personal->sss }}</span></h5>
+              <h5>PAG-IBIG: <span style="margin-left: 4rem">{{ $user->personal->pag_ibig }}</span></h5>
+              <h5>PHIL HEALTH: <span style="margin-left: 1rem">{{ $user->personal->phil_health }}</span></h5>
+              <h5>Drivers License: <span style="margin-left: 1rem">{{ $user->personal->driver_license }}</span></h5>
+            @else
+              <h5 class="text-center font-italic">No Data</h5>
+            @endIf
           </div>
         </div>
 
@@ -94,118 +99,63 @@
         
       </div>
     </div>
-    
-
   </div>
 
   <div class="row d-flex flex-column mt-5" style="width: 80%">
     <h2 class="text-center" style="text-decoration: underline; color: #0059B3;">Family Background</h2>
-    <div class="card-deck m-3">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Spouse</h3>
-          <h6 class="text-muted">Name:</h6>
-          @if(!empty($user->family))
+    <div class="row d-flex mt-5" style="width: 100%">
+      @if(!empty($user->family))
+        <div class="col-lg-4">
+          <div class="row d-flex flex-column text-center">
+            <h4 style="color: #0059B3;">Spouse</h4>
+            <h6 class="text-muted">Name:</h6>
             <h5>{{ $user->family->spouseFullname() }}</h5>
             <h6 class="text-muted">Occupation:</h6>
             <h5>{{ $user->family->spouse_occupation }}</h5>
-
             <h6 class="text-muted">Business Name:</h6>
             <h5>{{ $user->family->spouse_employer_business_name }}</h5>
-
             <h6 class="text-muted">Business Address:</h6>
             <h5>{{ $user->family->spouse_business_address }}</h5>
-
             <h6 class="text-muted">Phone number:</h6>
             <h5>{{ $user->family->spouse_tel_no }}</h5>
-          
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Father</h3>
-          <h6 class="text-muted">Name:</h6>
-          {{-- @if(!empty($user->family)) --}}
-          <h5>{{ $user->family->fatherFullname()}}</h5>
-          {{-- <h5>{{ $user->family->spouse_firstname." ".$user->family->spouse_middlename." ".$user->family->spouse_surname}}</h5> --}}
-          {{-- @else --}}
-          {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endif --}}
-          <h6 class="text-muted">Occupation:</h6>
-          {{-- @if(!@empty($user->family->father_occupation)) --}}
-              <h5>{{ $user->family->father_occupation }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
-  
-          <h6 class="text-muted">Business Name:</h6>
-          {{-- @if(!@empty($user->family->father_employer_business_name)) --}}
-              <h5>{{ $user->family->father_employer_business_name }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
-  
-          <h6 class="text-muted">Business Address:</h6>
-          {{-- @if(!@empty($user->family->father_business_address)) --}}
-              <h5>{{ $user->family->father_business_address }}</h5>
-          {{-- @else --}}
-              <h5 class="font-italic text-muted">None</h5>
-          {{-- @endIf --}}
-  
-          <h6 class="text-muted">Phone number:</h6>
-          {{-- @if(!@empty($user->family->father_tel_no)) --}}
-              <h5>{{ $user->family->father_tel_no }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
+        <div class="col-lg-4">
+          <div class="row d-flex flex-column text-center">
+            <h4 style="color: #0059B3;">Father</h4>
+            <h6 class="text-muted">Name:</h6>
+            <h5>{{ $user->family->fatherFullname()}}</h5>
+            <h6 class="text-muted">Occupation:</h6>
+            <h5>{{ $user->family->father_occupation }}</h5>
+            <h6 class="text-muted">Business Name:</h6>
+            <h5>{{ $user->family->father_employer_business_name }}</h5>
+            <h6 class="text-muted">Business Address:</h6>
+            <h5>{{ $user->family->father_business_address }}</h5>
+            <h6 class="text-muted">Phone number:</h6>
+            <h5>{{ $user->family->father_tel_no }}</h5>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Mother</h3>
-          <h6 class="text-muted">Name:</h6>
-          {{-- @if(!empty($user->family->motherFullname())) --}}
-          <h5>{{ $user->family->motherFullname()}}</h5>
-          {{-- <h5>{{ $user->family->spouse_firstname." ".$user->family->spouse_middlename." ".$user->family->spouse_surname}}</h5> --}}
-          {{-- @else --}}
-          <h5 class="font-italic text-muted">None</h5>
-          {{-- @endif --}}
-          <h6 class="text-muted">Occupation:</h6>
-          {{-- @if(!@empty($user->family->mother_occupation)) --}}
-              <h5>{{ $user->family->mother_occupation }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
-  
-          <h6 class="text-muted">Business Name:</h6>
-          {{-- @if(!@empty($user->family->mother_employer_business_name)) --}}
-              <h5>{{ $user->family->mother_employer_business_name }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
-  
-          <h6 class="text-muted">Business Address:</h6>
-          {{-- @if(!@empty($user->family->mother_business_address)) --}}
-              <h5>{{ $user->family->mother_business_address }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
-  
-          <h6 class="text-muted">Phone number:</h6>
-          {{-- @if(!@empty($user->family->mother_tel_no)) --}}
-              <h5>{{ $user->family->mother_tel_no }}</h5>
-          {{-- @else --}}
-              {{-- <h5 class="font-italic text-muted">None</h5> --}}
-          {{-- @endIf --}}
-          @else
-              <h5 class="font-italic text-muted">None</h5>
-          @endIf
+        <div class="col-lg-4">
+          <div class="row d-flex flex-column text-center">
+            <h4 style="color: #0059B3;">Mother</h4>
+            <h6 class="text-muted">Name:</h6>
+            <h5>{{ $user->family->motherFullname()}}</h5>
+            <h6 class="text-muted">Occupation:</h6>
+            <h5>{{ $user->family->mother_occupation }}</h5>
+            <h6 class="text-muted">Business Name:</h6>
+            <h5>{{ $user->family->mother_employer_business_name }}</h5>
+            <h6 class="text-muted">Business Address:</h6>
+            <h5>{{ $user->family->mother_business_address }}</h5>
+            <h6 class="text-muted">Phone number:</h6>
+            <h5>{{ $user->family->mother_tel_no }}</h5>
+          </div>
         </div>
-      </div>
-
+      @else
+        <h5 class="text-muted text-center font-italic">No Data</h5>
+      @endif
     </div>
 
-    
+   
 
     <h3 class="ml-5">Children</h3>
     <div class="row d-flex justify-content-center mb-5" style="width: 100%">
@@ -245,14 +195,13 @@
           <h4>{{ $user->elementary->level_units_earned }}</h4>
           <h4>{{ $user->elementary->name_of_school }} </h4>
           @else
-          <h4>{{ $user->elementary->graduated_date_from->format('Y')." "." - ".$user->secondary->graduated_date_to->format('Y') }}</h4>
+          <h4>{{ \Carbon\Carbon::parse($user->elementary->graduated_date_from)->format('Y') ." "." - ".\Carbon\Carbon::parse($user->elementary->graduated_date_to)->format('Y') }}</h4>
           <h4>{{ $user->elementary->name_of_school }} </h4>
           <h4>{{ $user->elementary->academic_reward }}</h4>
           @endif
         @else
           <h4>No Data</h4>
         @endif
-        
       </div>
     </div>
     <div class="col-lg-4 mt-3">
@@ -263,7 +212,7 @@
             <h4>{{ $user->secondary->level_units_earned }}</h4>
             <h4>{{ $user->secondary->name_of_school }} </h4>
           @else
-            <h4>{{ $user->secondary->graduated_date_from->format('Y')." "." - ".$user->secondary->graduated_date_to->format('Y') }}</h4>
+            <h4>{{ \Carbon\Carbon::parse($user->secondary->graduated_date_from)->format('Y') ." "." - ".\Carbon\Carbon::parse($user->secondary->graduated_date_to)->format('Y') }}</h4>
             <h4>{{ $user->secondary->name_of_school }} </h4>
             <h4>{{ $user->secondary->academic_reward }}</h4>
           @endif
@@ -280,7 +229,7 @@
             <h4>{{ $user->college->level_units_earned }}</h4>
             <h4>{{ $user->college->name_of_school }} </h4>
           @else
-            <h4>{{ $user->college->graduated_date_from->format('Y')." "." - ".$user->secondary->graduated_date_to->format('Y') }}</h4>
+            <h4>{{ \Carbon\Carbon::parse($user->college->graduated_date_from)->format('Y') ." "." - ".\Carbon\Carbon::parse($user->college->graduated_date_to)->format('Y') }}</h4>
             <h4>{{ $user->college->name_of_school }} </h4>
             <h4>{{ $user->college->academic_reward }}</h4>
           @endif
@@ -307,7 +256,7 @@
         <tbody>
           @forelse($user->graduate_studies as $study)
             <tr>
-              <td>{{ $study->graduated_date_from->format('Y')." "." - ".$study->graduated_date_to->format('Y') }}</td>
+              <td>{{ \Carbon\Carbon::parse($study->graduated_date_from)->format('Y') ." "." - ".\Carbon\Carbon::parse($study->graduated_date_to)->format('Y') }}</td>
               <td>{{ $study->degree }}</td>
               <td>{{ $study->course }}</td>
               <td>{{ $study->name_of_school }}</td>
@@ -334,7 +283,7 @@
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <h5>{{ $experience->date_from->format('Y')." "." - ".$experience->date_to->format('Y') }}</h5>
+              <h5>{{ \Carbon\Carbon::parse($experience->date_from)->format('Y')." "." - ".\Carbon\Carbon::parse($experience->date_to)->format('Y') }}</h5>
               <h5 style="color: #0059B3">{{ $experience->work_description }}</h5>
               <h5>{{ $experience->work_place }}</h5>
             </div>
@@ -365,7 +314,7 @@
         <tbody>
           @forelse($user->trainings as $training)
             <tr>
-              <td>{{ $training->training_date->format('M,d,Y') }}</td>
+              <td>{{ \Carbon\Carbon::parse($training->training_date)->format('M d,Y') }}</td>
               <td>{{ $training->training_title }}</td>
               <td>{{ $training->training_sponsor }}</td>
               <td>
@@ -400,7 +349,7 @@
         <tbody>
           @forelse($user->voluntary_works as $work)
             <tr>
-              <td>{{ $work->date_from->format('Y')." "." - ".$work->date_to->format('Y') }}</td>
+              <td>{{ \Carbon\Carbon::parse($work->date_from)->format('Y')." "." - ".\Carbon\Carbon::parse($work->date_to)->format('Y') }}</td>
               <td>{{ $work->position }}</td>
               <td>{{ $work->no_hours }}</td>
               <td>{{ $work->name_address }}</td>

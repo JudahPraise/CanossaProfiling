@@ -16,7 +16,7 @@
     <div class="col-lg-9">
         <div class="d-flex flex-column">
             <h3>Welcome Admin!</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+            <p class="w-75">You're able to see the total count of all the employees and every position. Click the cards below to view the list of employee based on their posiiton. Also you may able to see the profile of your selected employee by clicking the "view profile" button inside the table.</p>
         </div>
     </div>
 
