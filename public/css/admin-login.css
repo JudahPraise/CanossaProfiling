@@ -6,43 +6,48 @@
 .background{
     min-height: 100vh!important;
     min-width: 100%!important;
-    background-image: url(/img/1.jpg);
+    background-image: url(/img/image-1.JPG);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     animation: slide 40s linear infinite 0s;
-    animation-timing-function: step-end ;
+    animation-timing-function: step-start;
     overflow: hidden;   
     position: fixed;
 }
 
 @keyframes slide{
     0%{
-        background-image: url(/img/2.jpg);
+        background-image: url(/img/image-2.JPG);
     }
 
-    25%{
-        background-image: url(/img/3.jpg);
+    20%{
+        background-image: url(/img/image-3.JPG);
     }
 
-    50%{
-        background-image: url(/img/4.jpg);
+    40%{
+        background-image: url(/img/image-4.JPG);
     }
 
-    75%{
-        background-image: url(/img/5.jpg);
+    60%{
+        background-image: url(/img/image-5.JPG);
     }
-    100%{
-        background-image: url(/img/1.jpg);
+    70%{
+        background-image: url(/img/image-6.JPG);
     }
-
+    80%{
+        background-image: url(/img/image-7.JPG);
+    }
+    90%{
+        background-image: url(/img/image-8.JPG);
+    }
 }
 
 .glass{
 
     background-color: white;
-    min-height: 80vh!important;
-    min-width: 30%!important;
+    min-height: 70vh!important;
+    min-width: 28%!important;
     background: linear-gradient(
         to right bottom,
         rgba(255, 255, 255, 0.7),

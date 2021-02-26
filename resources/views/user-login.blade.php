@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container-fluid background d-flex justify-content-end w-100 m-0">
-        <div class="row announcement d-flex flex-column">
+        <div class="row announcement d-flex flex-column justify-content-center ">
             <h5 class="title"><i class="fas fa-quote-left mr-3"></i>Announcements</h5>
             <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -28,7 +28,6 @@
                             <h5>-</h5>
                             <h5 class="ml-2 text-white">{{ $announcement->ann_end }}</h5>
                           </span>
-                          <a href="">Show more</a>
                       </div>
                     </div>
                   @empty
@@ -46,7 +45,6 @@
                     <h2 class="font-weight-bold mt-3" style="color: #3A5EAE; font-size: 1.8rem;">Canossa HRIS</h2>
                     <p class="font-weight-normal mt-2"  style="font-size: 1.2rem;">Sign in to start you session</p>
                 </div>
-                
 
                 <div class="row w-75">
                     @yield('login-form')

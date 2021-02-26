@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\user;
+use App\User;
+use App\Employee;
 
 class RegisterController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('register-employee.index', compact('users', $users));
+        $employees = Employee::all();
+        return view('register-employee.index', compact('employees', $employees));
     }
 
     public function create()

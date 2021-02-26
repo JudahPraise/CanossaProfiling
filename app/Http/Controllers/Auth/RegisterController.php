@@ -31,7 +31,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'admin';
+    protected $redirectTo = '/home';
+
+    // public function redirectPath(){
+        
+    //     if(auth()->admin()->job_title === 'Admin'){
+    //         return route('admin.dashboard');
+    //     }
+
+    //     return route('admin');
+
+    // }
 
     /**
      * Create a new controller instance.
@@ -72,6 +82,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         $user = User::create([
 
             'fname' => $data['fname'],

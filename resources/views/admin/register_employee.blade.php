@@ -19,7 +19,8 @@
       <p class="w-75">You're able to add or register employee, you can also change the password of the accounts of the employee if they forgot their password.</p>
       <div class="row mt-3">
         <a href="{{ route('register.employee') }}" class="btn btn-outline-primary rounded-pill mr-2"><i class="fas fa-user-plus"></i>Register Employee</a>
-        <a href="{{ route('register.index') }}" class="btn btn-outline-info rounded-pill"><i class="fas fa-user-times"></i>Remove Employee</a>
+        <a href="{{ route('register.index') }}" class="btn btn-outline-info rounded-pill mr-2"><i class="fas fa-user-times"></i>Remove Employee</a>
+        <a href="{{ route('archive.index') }}" class="btn btn-outline-info rounded-pill"><i class="fas fa-user-times"></i>Resigned Employees</a>
       </div>
     </div>
   </div>

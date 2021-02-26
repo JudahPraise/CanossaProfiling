@@ -13,10 +13,10 @@
 <body>
 
     <div class="container-fluid background d-flex justify-content-center align-items-center w-100">
-        <div class="row glass">
+        <div class="row d-flex align-items-center glass">
             <div class="col-12 d-flex justify-content-start align-items-center flex-column">
                 <div class="row d-flex justify-content-center align-items-center flex-column w-75">
-                    <img class="logo mt-5" src="{{ asset('img/circle-logo.png') }}" alt="">
+                    <img class="logo" src="{{ asset('img/circle-logo.png') }}" alt="">
                     <h4 class="font-weight-bold mt-3" style="color: #3A5EAE;" >Canossa College | HRIS <span class="font-weight-normal"></span></h4>
                     <h3 class="font-weight-bolder" style="color: #3A5EAE;">Admin</h3>                    
                     <p class="font-weight-normal mt-2"  style="font-size: 1.2rem;">Sign in to start you session</p>

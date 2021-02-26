@@ -37,7 +37,7 @@ Route::prefix('admin')->group(function(){
 Route::get('user/change-password', 'ChangePasswordController@index')->name('user.update-password');
 Route::get('user/edit-password/{id}', 'ChangePasswordController@edit')->name('user.edit-password');
 Route::put('user/new-password/{id}', 'ChangePasswordController@update')->name('user.new-password');
-Route::post('user/password-changed', 'ChangePasswordController@store')->name('user.change-password');
+Route::get('user/password-changed', 'ChangePasswordController@store')->name('user.change-password');
 
 // * Image Upload Route
 Route::get('user/', 'ImageController@index')->name('image.index');
@@ -233,7 +233,6 @@ Route::prefix('filter-by')->group(function(){
 //TODO: PDF
 //* Profile PDF
 Route::prefix('PDF/resume')->group(function(){
-    
     Route::get('/', 'PdfController@index')->name('resume.index');
     Route::get('/export', 'PdfController@exportToPDF')->name('profile.exportToPDF');
 });
@@ -254,3 +253,7 @@ Route::get('forgot-password', function(){
 Route::get('personal-information', function(){
     return view('user-profile.fresh-start');
 })->name('fresh.start');
+
+Route::get('/archives', 'ArchiveController@index')->name('archive.index');
+Route::get('/archive/{id}', 'ArchiveController@archive')->name('archive');
+Route::get('/retrieve/{id}', 'ArchiveController@retrieve')->name('retrieve');

@@ -84,9 +84,8 @@
                     <select class="form-control" id="exampleFormControlSelect1" class="form-control" name="position">
                         <option selected>Choose...</option>
                         <option>Teacher</option>
-                        <option>Professor</option>
-                        <option>Instructor</option>
                         <option>Staff</option>
+                        <option>Maintenance</option>
                     </select>
                 </div>
             </div>

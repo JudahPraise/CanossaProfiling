@@ -4,7 +4,7 @@
 
 <div class="row w-100 px-2 d-flex align-items-center justify-content-start">
     <div class="col-lg-8">
-        <form method="POST" action="{{ route('user.update-password', $user->id) }}" class="w-100">
+        <form  action="{{ route('user.new-password', $user->id) }}" method="POST" class="w-100">
             @csrf 
             @method('PUT')
 
